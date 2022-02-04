@@ -1,0 +1,25 @@
+- name: Create tmp directory
+  file:
+    path: "{{dotfiles_user_home}}/.tmp/go"
+    state: directory
+
+- name: Download go tarball
+  get_url:
+    url: "https://golang.org/dl/go{{go_version}}.linux-amd64.tar.gz"
+    dest: "{{dotfiles_user_home}}/.tmp/go"
+
+- name: Install go
+  unarchive:
+    src: "{{dotfiles_user_home}}/.tmp/go/go{{go_version}}.linux-amd64.tar.gz"
+    dest: "/usr/local/"
+  become: yes
+
+- name: Remove tmp directory
+  file:
+    path: "{{dotfiles_user_home}}/.tmp/go"
+    state: absent
+
+- name: Add go to path
+  shell: echo $PATH
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"
