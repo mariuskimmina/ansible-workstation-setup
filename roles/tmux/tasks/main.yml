@@ -1,0 +1,12 @@
+- name: Install Tmux with apt
+  apt:
+    name: tmux
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Install Tmux Plugin Manger (tpm)
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
+    version: master
