@@ -3,3 +3,4 @@
   roles:
     - {role: zsh, tags: ['zsh']}
     - {role: go, tags: ['go']}
+    - {role: tmux, tags: ['tmux']}
