@@ -1,22 +1,22 @@
 - name: Create tmp directory
   file:
-    path: "{{dotfiles_user_home}}/.tmp/go"
+    path: "/tmp/go"
     state: directory
 
 - name: Download go tarball
   get_url:
     url: "https://golang.org/dl/go{{go_version}}.linux-amd64.tar.gz"
-    dest: "{{dotfiles_user_home}}/.tmp/go"
+    dest: "/tmp/go"
 
 - name: Install go
   unarchive:
-    src: "{{dotfiles_user_home}}/.tmp/go/go{{go_version}}.linux-amd64.tar.gz"
+    src: "/tmp/go/go{{go_version}}.linux-amd64.tar.gz"
     dest: "/usr/local/"
   become: yes
 
 - name: Remove tmp directory
   file:
-    path: "{{dotfiles_user_home}}/.tmp/go"
+    path: "/tmp/go"
     state: absent
 
 - name: Add go to path
