@@ -1,0 +1,7 @@
+- name: "Download NVIM (Debian)"
+  get_url:
+    url: "{{ nvim_download_url_linux }}"
+    dest: "/usr/bin/nvim"
+    mode: 0755
+    remote_src: yes
+  become: yes

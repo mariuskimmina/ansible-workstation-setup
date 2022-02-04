@@ -1,0 +1,4 @@
+nvim_version: "0.6.0"
+nvim_download_url_linux: "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+nvim_download_url_darwin: "https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz"
+nvim_install_dest: "$HOME/neovim"
