@@ -2,3 +2,4 @@
   hosts: localhost
   roles:
     - {role: zsh, tags: ['zsh']}
+    - {role: go, tags: ['go']}
