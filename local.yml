@@ -1,7 +1,8 @@
 - name: Set up local development environment
   hosts: localhost
   roles:
-    - {role: zsh, tags: ['zsh']}
     - {role: go, tags: ['go']}
+    - {role: zsh, tags: ['zsh']}
     - {role: tmux, tags: ['tmux']}
     - {role: nvim, tags: ['nvim']}
+    - {role: docker, tags: ['docker']}
